@@ -13,7 +13,10 @@
         <p v-show="mostrar" style="color: green">Se está mostrando</p>
         <p v-show="!mostrar" style="color:red">No se está mostrando</p>
         <p v-pre>{{ mensaje }}</p>
-        <img v-bind:width="anchoImagen" v-bind:src="urlElegida" />
+        <img v-show="elegido" v-bind:width="anchoImagen" v-bind:src="urlElegida" />
+        <img v-show="!elegido" v-bind:width="anchoImagen" v-bind:src="imagenGato" />
+        <input type="checkbox" v-model="elegido" />
+        <p>Para cambiar la imagen, presione el checkbox</p>
     </div>
     <script src="index.js"></script>
 </body>
