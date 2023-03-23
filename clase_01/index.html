@@ -13,7 +13,7 @@
         <p v-show="mostrar" style="color: green">Se está mostrando</p>
         <p v-show="!mostrar" style="color:red">No se está mostrando</p>
         <p v-pre>{{ mensaje }}</p>
-
+        <img v-bind:width="anchoImagen" v-bind:src="urlElegida" />
     </div>
     <script src="index.js"></script>
 </body>
