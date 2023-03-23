@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primer aplicación con vuejs</title>
+    <link href="index.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+    <p>{{mensaje}}</p>
+    <div id="contenedor">
+        <p v-show="mostrar" style="color: green">Se está mostrando</p>
+        <p v-show="!mostrar" style="color:red">No se está mostrando</p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
