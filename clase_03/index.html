@@ -17,24 +17,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li v-for="item in links" class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">{{item.text}}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Oculto</a>
+                        <li v-for="item in links" class="nav-item" v-if="item.enable || login">
+                            <a class="nav-link" aria-current="page" href="#">{{item.text}}</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <button v-if="!login" class="btn btn-outline-success" type="submit">Iniciar sesión</button>
-                        <button v-if="login" class="btn btn-outline-success" type="submit">Cerrar sesión</button>
+                    <form class="d-flex" @submit.prevent="envioDeInformacion">
+                        <button v-if="!login" class="btn btn-outline-success" @click="iniciarSesion">Iniciar sesión</button>
+                        <button v-if="login" class="btn btn-outline-success" @click="cerrarSesion">Cerrar sesión</button>
                     </form>
                 </div>
             </div>
         </nav>
         <main>
             <p>{{mensaje}}</p>
-            <p v-show="login" style="color: green">Bienvenido</p>
-            <p v-show="!login" style="color:red">Por favor, ¡inicie sesión!</p>
+            <p>{{login ? 'Esta logueado con su usuario del sistema' : 'Para continuar, inicie sesión'}}</p>
         </main>
     </div>
     <script src="index.js"></script>
