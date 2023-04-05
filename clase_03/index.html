@@ -31,9 +31,11 @@
                 </div>
             </div>
         </nav>
-        <p>{{mensaje}}</p>
-        <p v-show="login" style="color: green">Bienvenido</p>
-        <p v-show="!login" style="color:red">Por favor, ¡inicie sesión!</p>
+        <main>
+            <p>{{mensaje}}</p>
+            <p v-show="login" style="color: green">Bienvenido</p>
+            <p v-show="!login" style="color:red">Por favor, ¡inicie sesión!</p>
+        </main>
     </div>
     <script src="index.js"></script>
 </body>
