@@ -4,6 +4,7 @@ const imagenGato = "https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-ch
 const app = new Vue({
     el: '#contenedor',
     data: {
+        panelLoginVisible: false,
         mensaje: 'Vamos a probar el uso de eventos en Vue',
         login: false,
         links: [
@@ -13,14 +14,25 @@ const app = new Vue({
         ]
     },
     methods: {
+        mostrarPanelLogin() {
+            this.panelLoginVisible = true;
+        },
+        ocultarPanelLogin() {
+            this.panelLoginVisible = false;
+        },
         iniciarSesion() {
             this.login = true;
+            this.ocultarPanelLogin();
         },
         cerrarSesion() {
             this.login = false;
         },
         envioDeInformacion() {
             console.log('Se ha enviado la información');
+        },
+        probandoEscape() {
+            console.log("probandoEscape");
+            alert('Se ha presionado la tecla escape');
         }
     }
 });

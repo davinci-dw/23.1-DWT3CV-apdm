@@ -9,6 +9,26 @@
 </head>
 <body>
     <div id="contenedor">
+        <div v-show="panelLoginVisible" class="modal" tabindex="-1" role="dialog" style="display: block">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Inicio de sesión</h5>
+                        <button type="button" class="close" aria-label="Close" @click="ocultarPanelLogin">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Por favor, ingrese la contraseña genérica provista.</p>
+                        <input type="password" v-on:keyup.enter="iniciarSesion">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" @click="iniciarSesion">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-secondary" @click="ocultarPanelLogin">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -22,7 +42,7 @@
                         </li>
                     </ul>
                     <form class="d-flex" @submit.prevent="envioDeInformacion">
-                        <button v-if="!login" class="btn btn-outline-success" @click="iniciarSesion">Iniciar sesión</button>
+                        <button v-if="!login" class="btn btn-outline-success" @click="mostrarPanelLogin">Iniciar sesión</button>
                         <button v-if="login" class="btn btn-outline-success" @click="cerrarSesion">Cerrar sesión</button>
                     </form>
                 </div>
