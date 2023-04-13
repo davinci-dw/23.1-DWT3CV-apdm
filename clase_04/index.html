@@ -43,7 +43,7 @@
                     </ul>
                     <form class="d-flex" @submit.prevent="envioDeInformacion">
                         <button
-                                :class="!login ? 'btn btn-outline-success': 'btn btn-outline-danger'"
+                                :class="`btn btn-outline-${!login ? 'success' : 'danger'}`"
                                 @click="toogleLogin"
                         >
                             {{login ? 'Cerrar sesión' : 'Iniciar sesión'}}
