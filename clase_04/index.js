@@ -24,8 +24,11 @@ const app = new Vue({
             this.login = true;
             this.ocultarPanelLogin();
         },
-        cerrarSesion() {
-            this.login = false;
+        toogleLogin() {
+            if(!this.login) {
+                this.mostrarPanelLogin();
+            }
+            this.login = !this.login;
         },
         envioDeInformacion() {
             console.log('Se ha enviado la información');

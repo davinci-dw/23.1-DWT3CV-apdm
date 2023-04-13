@@ -42,8 +42,12 @@
                         </li>
                     </ul>
                     <form class="d-flex" @submit.prevent="envioDeInformacion">
-                        <button v-if="!login" class="btn btn-outline-success" @click="mostrarPanelLogin">Iniciar sesión</button>
-                        <button v-if="login" class="btn btn-outline-success" @click="cerrarSesion">Cerrar sesión</button>
+                        <button
+                                :class="!login ? 'btn btn-outline-success': 'btn btn-outline-danger'"
+                                @click="toogleLogin"
+                        >
+                            {{login ? 'Cerrar sesión' : 'Iniciar sesión'}}
+                        </button>
                     </form>
                 </div>
             </div>
