@@ -33,6 +33,14 @@ const app = new Vue({
         probandoEscape() {
             console.log("probandoEscape");
             alert('Se ha presionado la tecla escape');
+        },
+        agregarMiPerfil() {
+            const miPerfil = {url: '/about', enable: true};
+            this.links.push(miPerfil);
+        },
+        sacarMiPerfil() {
+            this.links.splice(1, 1);
+            console.log('Se ha sacado el perfil');
         }
     }
 });
