@@ -8,9 +8,9 @@ const app = new Vue({
         mensaje: 'Vamos a armar la aplicación en Vue modularmente',
         login: false,
         links: [
-            {text: 'Información general', url: '/home', enable: true},
-            {text: 'Mi perfil', url: '/about', enable: false},
-            {text: 'Configuraciones', url: '/contact', enable: false},
+            {text: 'Información general', url: '/home', enable: true, active: true},
+            {text: 'Mi perfil', url: '/about', enable: false, active: false},
+            {text: 'Configuraciones', url: '/contact', enable: false, active: false},
         ]
     },
     methods: {
