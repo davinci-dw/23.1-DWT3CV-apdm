@@ -4,10 +4,16 @@ const imagenGato = "https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-ch
 Vue.component('page-content', {
     template: `
         <div>
-            <h1>Contenido de la página</h1>
-            <p>Este es el contenido de la página</p>
+            <h1>{{titulo}}</h1>
+            <p>{{mensaje}}</p>
         </div>
-    `
+    `,
+    props: ['mensaje'],
+    data: function(){
+        return {
+            titulo: 'Contenido de la página'
+        }
+    }
 });
 
 const app = new Vue({

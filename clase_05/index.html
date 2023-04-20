@@ -53,7 +53,11 @@
             </div>
         </nav>
         <main>
-            <page-content></page-content>
+            <page-content
+                    :mensaje="'Este es un mensaje'"
+            ></page-content>
+            <page-content :mensaje="'Este es otro mensaje'"></page-content>
+            <page-content :mensaje="'Este es el último mensaje'"></page-content>
             <p>{{mensaje}}</p>
             <p>{{login ? 'Esta logueado con su usuario del sistema' : 'Para continuar, inicie sesión'}}</p>
             <!--
