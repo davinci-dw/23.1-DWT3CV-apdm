@@ -54,10 +54,10 @@
         </nav>
         <main>
             <page-content
-                    :mensaje="'Este es un mensaje'"
+              v-for="article in articles"
+              :titulo="article.titulo"
+              :mensaje="article.mensaje"
             ></page-content>
-            <page-content :mensaje="'Este es otro mensaje'"></page-content>
-            <page-content :mensaje="'Este es el último mensaje'"></page-content>
             <p>{{mensaje}}</p>
             <p>{{login ? 'Esta logueado con su usuario del sistema' : 'Para continuar, inicie sesión'}}</p>
             <!--

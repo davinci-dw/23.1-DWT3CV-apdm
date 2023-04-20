@@ -8,10 +8,9 @@ Vue.component('page-content', {
             <p>{{mensaje}}</p>
         </div>
     `,
-    props: ['mensaje'],
+    props: ['titulo', 'mensaje'],
     data: function(){
         return {
-            titulo: 'Contenido de la página'
         }
     }
 });
@@ -22,6 +21,20 @@ const app = new Vue({
         panelLoginVisible: false,
         mensaje: 'Vamos a armar la aplicación en Vue modularmente',
         login: false,
+        articles: [
+            {
+                titulo: 'Perro',
+                mensaje: 'El perro es un mamífero carnívoro de la familia de los cánidos que constituye una subespecie del lobo. Es un animal doméstico en la mayor parte de los hogares humanos y ha sido el mejor amigo del hombre durante milenios.',
+            },
+            {
+                titulo: 'Gato',
+                mensaje: 'El gato es un mamífero carnívoro de la familia de los felinos. Es un animal doméstico, aunque se le puede encontrar en estado salvaje. Es un animal muy inteligente y curioso, y se le considera un animal de compañía.',
+            },
+            {
+                titulo: 'Pez',
+                mensaje: 'El pez es un animal acuático, vertebrado, de cuerpo blando y simétrico, que vive en el agua y respira por branquias. Los peces se clasifican en dos grandes grupos: los peces cartilaginosos y los peces óseos.',
+            }
+        ],
         links: [
             {text: 'Información general', url: '/home', enable: true, active: true},
             {text: 'Mi perfil', url: '/about', enable: false, active: false},
