@@ -21,6 +21,7 @@ const app = new Vue({
         panelLoginVisible: false,
         mensaje: 'Vamos a armar la aplicación en Vue modularmente',
         login: false,
+        //login: JSON.parse(localStorage.getItem('login')) ||  false,
         articles: [
             {
                 titulo: 'Perro',
@@ -47,6 +48,10 @@ const app = new Vue({
     },
     mounted() {
         const isLogin = JSON.parse(localStorage.getItem('login'));
+        const mensaje = localStorage.getItem('mensaje');
+        if(mensaje) {
+            this.mensaje = mensaje;
+        }
         if(isLogin) { //"true", "false" -> true
             this.login = true;
         }
@@ -62,6 +67,9 @@ const app = new Vue({
             this.login = true;
             localStorage.setItem('login', 'true');
             this.ocultarPanelLogin();
+
+            //la primera vez
+            localStorage.setItem('mensaje', "Estoy cambiando el mensaje");
         },
         toogleLogin() {
             if(!this.login) { // Si no está logueado
