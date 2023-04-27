@@ -1,0 +1,19 @@
+.active a{
+    color: #ff1500 !important;
+}
+
+.pageContent {
+    background: #ccc;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.pageContent__title {
+    text-decoration: underline;
+}
+
+.pageContent__text {
+    margin-top: 1rem;
+}
