@@ -59,6 +59,8 @@ const app = new Vue({
         toogleLogin() {
             if(!this.login) {
                 this.mostrarPanelLogin();
+            } else {
+                this.login = false;
             }
             this.login = !this.login;
         },
