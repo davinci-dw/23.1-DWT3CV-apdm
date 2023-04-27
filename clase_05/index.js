@@ -3,9 +3,9 @@ const imagenGato = "https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-ch
 
 Vue.component('page-content', {
     template: `
-        <div>
-            <h1>{{titulo}}</h1>
-            <p>{{mensaje}}</p>
+        <div class="pageContent">
+            <h1 class="pageContent__title">{{titulo}}</h1>
+            <p class="pageContent__text">{{mensaje}}</p>
         </div>
     `,
     props: ['titulo', 'mensaje'],
@@ -33,6 +33,10 @@ const app = new Vue({
             {
                 titulo: 'Pez',
                 mensaje: 'El pez es un animal acuático, vertebrado, de cuerpo blando y simétrico, que vive en el agua y respira por branquias. Los peces se clasifican en dos grandes grupos: los peces cartilaginosos y los peces óseos.',
+            },
+            {
+                titulo: 'Pájaro',
+                mensaje: 'El pájaro es un animal vertebrado, de sangre caliente, que tiene el cuerpo cubierto de plumas y que se caracteriza por tener dos alas y dos patas. Los pájaros son ovíparos, es decir, nacen de huevos.',
             }
         ],
         links: [
