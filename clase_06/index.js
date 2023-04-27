@@ -45,6 +45,12 @@ const app = new Vue({
             {text: 'Configuraciones', url: '/contact', enable: false, active: false},
         ]
     },
+    mounted() {
+        const isLogin = JSON.parse(localStorage.getItem('login'));
+        if(isLogin) { //"true", "false" -> true
+            this.login = true;
+        }
+    },
     methods: {
         mostrarPanelLogin() {
             this.panelLoginVisible = true;
@@ -54,15 +60,17 @@ const app = new Vue({
         },
         iniciarSesion() {
             this.login = true;
+            localStorage.setItem('login', 'true');
             this.ocultarPanelLogin();
         },
         toogleLogin() {
-            if(!this.login) {
+            if(!this.login) { // Si no está logueado
                 this.mostrarPanelLogin();
             } else {
+                console.log('Se ha cerrado la sesión');
+                localStorage.setItem('login', 'false');
                 this.login = false;
             }
-            this.login = !this.login;
         },
         envioDeInformacion() {
             console.log('Se ha enviado la información');
