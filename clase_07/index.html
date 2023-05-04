@@ -7,29 +7,15 @@
     <link href="index.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script src="./components/page-content.js"></script>
+    <script src="./components/login-modal.js"></script>
 </head>
 <body>
     <div id="contenedor">
-        <div v-show="panelLoginVisible" class="modal" tabindex="-1" role="dialog" style="display: block">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Inicio de sesión</h5>
-                        <button type="button" class="close" aria-label="Close" @click="ocultarPanelLogin">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Por favor, ingrese la contraseña genérica provista.</p>
-                        <input type="password" v-on:keyup.enter="iniciarSesion">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="iniciarSesion">Iniciar Sesión</button>
-                        <button type="button" class="btn btn-secondary" @click="ocultarPanelLogin">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <login-modal
+                :panel-login-visible="panelLoginVisible"
+                :ocultar-panel-login="ocultarPanelLogin"
+                :iniciar-sesion="iniciarSesion"
+        ></login-modal>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
