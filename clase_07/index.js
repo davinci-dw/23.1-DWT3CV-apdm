@@ -1,20 +1,6 @@
 const imagenPerro = "https://img.freepik.com/foto-gratis/lindo-perrito-haciendose-pasar-persona-negocios_23-2148985938.jpg";
 const imagenGato = "https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-chocolate-point.jpg";
 
-Vue.component('page-content', {
-    template: `
-        <div class="pageContent">
-            <h1 class="pageContent__title">{{titulo}}</h1>
-            <p class="pageContent__text">{{mensaje}}</p>
-        </div>
-    `,
-    props: ['titulo', 'mensaje'],
-    data: function(){
-        return {
-        }
-    }
-});
-
 const app = new Vue({
     el: '#contenedor',
     data: {
