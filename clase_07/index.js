@@ -46,7 +46,11 @@ const app = new Vue({
             {text: 'Configuraciones', url: '/contact', enable: false, active: false},
         ]
     },
+    beforeMount() {
+        console.log("Se va a montar el componente");
+    },
     mounted() {
+        console.log("Se ha montado el componente");
         const isLogin = JSON.parse(localStorage.getItem('login'));
         const mensaje = localStorage.getItem('mensaje');
         if(mensaje) {
@@ -56,6 +60,13 @@ const app = new Vue({
             this.login = true;
         }
     },
+    destroyed() {
+        console.log('Se ha destruido el componente');
+    },
+    beforeCreate() {
+        console.log('Se ha creado el componente');
+    },
+
     methods: {
         mostrarPanelLogin() {
             this.panelLoginVisible = true;
