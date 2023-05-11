@@ -41,6 +41,10 @@
             </div>
         </nav>
         <main>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Todos los articulos</option>
+                <option v-for="item in articles" :value="item.id" :key="item.id">{{item.titulo}}</option>
+            </select>
             <page-content
               v-for="article in articles"
               :titulo="article.titulo"

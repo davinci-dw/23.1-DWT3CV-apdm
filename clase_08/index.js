@@ -10,18 +10,22 @@ const app = new Vue({
         //login: JSON.parse(localStorage.getItem('login')) ||  false,
         articles: [
             {
+                id: 0,
                 titulo: 'Perro',
                 mensaje: 'El perro es un mamífero carnívoro de la familia de los cánidos que constituye una subespecie del lobo. Es un animal doméstico en la mayor parte de los hogares humanos y ha sido el mejor amigo del hombre durante milenios.',
             },
             {
+                id: 1,
                 titulo: 'Gato',
                 mensaje: 'El gato es un mamífero carnívoro de la familia de los felinos. Es un animal doméstico, aunque se le puede encontrar en estado salvaje. Es un animal muy inteligente y curioso, y se le considera un animal de compañía.',
             },
             {
+                id: 2,
                 titulo: 'Pez',
                 mensaje: 'El pez es un animal acuático, vertebrado, de cuerpo blando y simétrico, que vive en el agua y respira por branquias. Los peces se clasifican en dos grandes grupos: los peces cartilaginosos y los peces óseos.',
             },
             {
+                id: 3,
                 titulo: 'Pájaro',
                 mensaje: 'El pájaro es un animal vertebrado, de sangre caliente, que tiene el cuerpo cubierto de plumas y que se caracteriza por tener dos alas y dos patas. Los pájaros son ovíparos, es decir, nacen de huevos.',
             }
