@@ -12,6 +12,7 @@
 <body>
     <div id="contenedor">
         <login-modal
+                @authenticated="authenticated"
                 :panel-login-visible="panelLoginVisible"
                 :ocultar-panel-login="ocultarPanelLogin"
                 :iniciar-sesion="iniciarSesion"

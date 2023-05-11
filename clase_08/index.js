@@ -54,6 +54,11 @@ const app = new Vue({
     },
 
     methods: {
+        authenticated(status) {
+            if(status) {
+                console.log("Se pudo loguear correctamente");
+            }
+        },
         mostrarPanelLogin() {
             this.panelLoginVisible = true;
         },

@@ -13,10 +13,10 @@ Vue.component('login-modal', {
                     </div>
                     <div class="modal-body">
                         <p>Por favor, ingrese la contraseña genérica provista.</p>
-                        <input type="password" v-on:keyup.enter="iniciarSesion">
+                        <input type="password" v-on:keyup.enter="loginOnServer">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="iniciarSesion">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-primary" @click="loginOnServer">Iniciar Sesión</button>
                         <button type="button" class="btn btn-secondary" @click="ocultarPanelLogin">Cancelar</button>
                     </div>
                 </div>
@@ -24,6 +24,24 @@ Vue.component('login-modal', {
         </div>
     `,
     props: ['panelLoginVisible', 'ocultarPanelLogin', 'iniciarSesion'],
+    methods: {
+        loginOnServer: function() {
+            new Promise((success, error) => {
+                setTimeout(() => {
+                    success();
+                }, 2000);
+            })
+            .then(() => {
+                console.log("Estamos autenticando al usuario en el servidor");
+                this.iniciarSesion();
+                this.$emit('authenticated', true);
+            })
+            .catch(() => {
+                console.log("No se pudo autenticar al usuario en el servidor");
+                this.$emit('authenticated', false);
+            });
+        }
+    },
     beforeMount() {
         console.log("Se va a montar el componente login-modal");
         console.log(this.panelLoginVisible);
