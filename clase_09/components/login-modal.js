@@ -1,4 +1,5 @@
 console.log("Se ha cargado el componente login-modal.js")
+const PASSWORD = "123456";
 
 Vue.component('login-modal', {
     template: `
@@ -14,7 +15,7 @@ Vue.component('login-modal', {
                     <form @submit.prevent="loginOnServer">
                         <div class="modal-body">
                             <p>Por favor, ingrese la contraseña genérica provista.</p>
-                            <input type="password">
+                            <input type="password" v-model="password">
                             
                             <p style="margin-top: 1.5rem;">Para poder continuar, debe aceptar las politicas de privacidad, y los términos y condiciones</p>
                             <div class="form-check">
@@ -30,6 +31,11 @@ Vue.component('login-modal', {
                               </label>
                             </div>
     
+                        </div>
+                        <div class="modal-errors">
+                            <div v-for="error in errors" class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>                  
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Iniciar Sesión" class="btn btn-primary" :disabled="loginIsDisable">
@@ -48,6 +54,13 @@ Vue.component('login-modal', {
     },
     methods: {
         loginOnServer: function() {
+            this.errors = [];
+            //validamos que el password sea el correcto
+            if (this.password !== PASSWORD) {
+                this.errors.push("La contraseña es incorrecta");
+                return;
+            }
+
             new Promise((success, error) => {
                 setTimeout(() => {
                     success();
@@ -74,7 +87,9 @@ Vue.component('login-modal', {
     },
     data: function() {
         return {
+            errors: [],
             legals: [],
+            password: ""
         }
     }
 });
