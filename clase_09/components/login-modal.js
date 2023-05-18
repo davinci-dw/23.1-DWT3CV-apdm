@@ -11,29 +11,31 @@ Vue.component('login-modal', {
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <p>Por favor, ingrese la contraseña genérica provista.</p>
-                        <input type="password" v-on:keyup.enter="loginOnServer">
-                        
-                        <p style="margin-top: 1.5rem;">Para poder continuar, debe aceptar las politicas de privacidad, y los términos y condiciones</p>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="policies" id="flexCheckDefault" v-model="legals">
-                          <label class="form-check-label" for="flexCheckDefault">
-                            Politicas de privacidad
-                          </label>
+                    <form @submit.prevent="loginOnServer">
+                        <div class="modal-body">
+                            <p>Por favor, ingrese la contraseña genérica provista.</p>
+                            <input type="password">
+                            
+                            <p style="margin-top: 1.5rem;">Para poder continuar, debe aceptar las politicas de privacidad, y los términos y condiciones</p>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="policies" id="flexCheckDefault" v-model="legals">
+                              <label class="form-check-label" for="flexCheckDefault">
+                                Politicas de privacidad
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="terms" id="flexCheckChecked" v-model="legals">
+                              <label class="form-check-label" for="flexCheckChecked">
+                                Términos y condiciones
+                              </label>
+                            </div>
+    
                         </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="terms" id="flexCheckChecked" v-model="legals">
-                          <label class="form-check-label" for="flexCheckChecked">
-                            Términos y condiciones
-                          </label>
+                        <div class="modal-footer">
+                            <input type="submit" value="Iniciar Sesión" class="btn btn-primary" :disabled="loginIsDisable">
+                            <button type="button" class="btn btn-secondary" @click="ocultarPanelLogin">Cancelar</button>
                         </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="loginOnServer" :disabled="loginIsDisable">Iniciar Sesión</button>
-                        <button type="button" class="btn btn-secondary" @click="ocultarPanelLogin">Cancelar</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
