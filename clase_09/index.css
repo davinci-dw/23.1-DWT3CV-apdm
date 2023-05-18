@@ -17,3 +17,7 @@
 .pageContent__text {
     margin-top: 1rem;
 }
+
+.modal-errors {
+    padding: 0 1rem;
+}

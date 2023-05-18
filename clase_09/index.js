@@ -1,8 +1,57 @@
 const imagenPerro = "https://img.freepik.com/foto-gratis/lindo-perrito-haciendose-pasar-persona-negocios_23-2148985938.jpg";
 const imagenGato = "https://cdn.britannica.com/39/7139-050-A88818BB/Himalayan-chocolate-point.jpg";
 
+const home = {
+    template: `
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Home</h1>
+                    <p>Esta es la página de inicio</p>
+                </div>
+            </div>
+        </div>
+    `
+}
+
+const perfil = {
+    template: `
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Mi perfil</h1>
+                    <p>Este es mi perfil</p>
+                </div>
+            </div>
+        </div>
+    `
+}
+
+const configuracion = {
+    template: `
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Configuración</h1>
+                    <p>Esta es la página de configuración</p>
+                </div>
+            </div>
+        </div>
+    `
+}
+
+const router = new VueRouter({
+    routes: [
+        {path: '/', component: home},
+        {path: '/home', component: home},
+        {path: '/about', component: perfil},
+        {path: '/contact', component: configuracion},
+    ]
+});
+
 const app = new Vue({
     el: '#contenedor',
+    router,
     data: {
         panelLoginVisible: false,
         mensaje: 'Vamos a armar la aplicación en Vue modularmente',
