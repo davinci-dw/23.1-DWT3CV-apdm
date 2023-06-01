@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <HeaderApp/>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Estamos probando vue2 via cli"/>
   </div>
@@ -7,10 +8,12 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import HeaderApp from './components/HeaderApp.vue'
 
 export default {
   name: 'App',
   components: {
+    HeaderApp,
     HelloWorld
   }
 }
