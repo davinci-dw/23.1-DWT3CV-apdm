@@ -1,13 +1,35 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Información general</router-link> |
-      <router-link to="/about">Mi perfil</router-link> |
-      <router-link to="/contact">Configuraciones</router-link>
-    </nav>
-    <router-view/>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <nav>
+        <router-link to="/">Información general</router-link> |
+        <router-link to="/about">Mi perfil</router-link> |
+        <router-link to="/contact">Configuraciones</router-link>
+      </nav>
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
   </div>
 </template>
+
+<script>
+
+export default {
+  name: 'App',
+
+  data: () => ({
+    //
+  }),
+};
+</script>
 
 <style>
 #app {
@@ -31,3 +53,4 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
