@@ -1,6 +1,64 @@
 <template>
   <div id="app">
   <v-app>
+    <v-row justify="center">
+      <v-dialog
+          v-model="dialog"
+          persistent
+          max-width="600px"
+      >
+        <v-card>
+          <v-card-title>
+            <span class="text-h5">Inicio de sesión</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                      label="Email*"
+                      required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                      label="Password*"
+                      type="password"
+                      required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-checkbox
+                      label="Politicas de privacidad*"
+                  ></v-checkbox>
+                  <v-checkbox
+                      label="Términos y condiciones*"
+                  ></v-checkbox>
+                </v-col>
+              </v-row>
+            </v-container>
+            <small>*campos obligatorios</small>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+                color="blue darken-1"
+                text
+                @click="dialog = false"
+            >
+              Cerrar
+            </v-btn>
+            <v-btn
+                color="blue darken-1"
+                text
+                @click="dialog = false"
+            >
+              Iniciar Sesión
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
     <v-app-bar
       app
       color="primary"
@@ -16,13 +74,13 @@
         left
         temporary
     >
-      <v-list-item>
+      <v-list-item @click="iniciarSesion">
         <v-list-item-content>
           <v-list-item-title class="text-h6">
-            Application
+            Ejemplo Vuetify
           </v-list-item-title>
           <v-list-item-subtitle>
-            subtext
+            inicie sesión
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -63,9 +121,9 @@
 
 export default {
   name: 'App',
-
   data: () => ({
     drawer: false,
+    dialog: false,
     items: [
       { title: 'Información General', icon: 'mdi-view-dashboard', link: '/' },
       { title: 'Mi perfil', icon: 'mdi-image', link: '/about' },
@@ -73,6 +131,12 @@ export default {
     ],
     right: null,
   }),
+  methods: {
+    iniciarSesion() {
+      this.drawer = false;
+      this.dialog = true;
+    },
+  },
 };
 </script>
 
