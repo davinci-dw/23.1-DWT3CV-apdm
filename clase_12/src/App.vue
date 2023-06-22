@@ -51,7 +51,7 @@
             <v-btn
                 color="blue darken-1"
                 text
-                @click="dialog = false"
+                @click="login"
             >
               Iniciar Sesión
             </v-btn>
@@ -74,7 +74,7 @@
         left
         temporary
     >
-      <v-list-item @click="iniciarSesion">
+      <v-list-item @click="showDialog">
         <v-list-item-content>
           <v-list-item-title class="text-h6">
             Ejemplo Vuetify
@@ -92,7 +92,7 @@
           nav
       >
         <v-list-item
-            v-for="item in items"
+            v-for="item in authorizedItems"
             :key="item.title"
             link
         >
@@ -122,20 +122,30 @@
 export default {
   name: 'App',
   data: () => ({
+    session: false,
     drawer: false,
     dialog: false,
     items: [
-      { title: 'Información General', icon: 'mdi-view-dashboard', link: '/' },
-      { title: 'Mi perfil', icon: 'mdi-image', link: '/about' },
-      { title: 'Configuración', icon: 'mdi-help-box', link: '/contact' },
+      { title: 'Información General', icon: 'mdi-view-dashboard', link: '/', 'authRequired': false },
+      { title: 'Mi perfil', icon: 'mdi-image', link: '/about', 'authRequired': true },
+      { title: 'Configuración', icon: 'mdi-help-box', link: '/contact', 'authRequired': true },
     ],
     right: null,
   }),
+  computed: {
+    authorizedItems() {
+      return this.items.filter(item => !item.authRequired || this.session);
+    },
+  },
   methods: {
-    iniciarSesion() {
+    showDialog() {
       this.drawer = false;
       this.dialog = true;
     },
+    login() {
+      this.session = true;
+      this.dialog = false;
+    }
   },
 };
 </script>
