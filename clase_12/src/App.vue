@@ -1,7 +1,21 @@
 <template>
   <div id="app">
   <v-app>
-    <v-navigation-drawer permanent>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <nav>
+      </nav>
+    </v-app-bar>
+    <v-navigation-drawer
+        v-model="drawer"
+        absolute
+        left
+        temporary
+    >
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
@@ -38,19 +52,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <nav>
-        <router-link to="/">Información general</router-link> |
-        <router-link to="/about">Mi perfil</router-link> |
-        <router-link to="/contact">Configuraciones</router-link>
-      </nav>
-    </v-app-bar>
-
     <v-main>
       <router-view/>
     </v-main>
