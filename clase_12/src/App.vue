@@ -16,12 +16,14 @@
               <v-row>
                 <v-col cols="12">
                   <v-text-field
+                      v-model="email"
                       label="Email*"
                       required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
+                      v-model="password"
                       label="Password*"
                       type="password"
                       required
@@ -118,10 +120,21 @@
 </template>
 
 <script>
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+};
+
+const app = initializeApp(firebaseConfig);
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth(app); // Inicializamos el servicio de autenticación
 
 export default {
   name: 'App',
   data: () => ({
+    email: '',
+    password: '',
     session: false,
     drawer: false,
     dialog: false,
@@ -143,8 +156,18 @@ export default {
       this.dialog = true;
     },
     login() {
-      this.session = true;
-      this.dialog = false;
+      signInWithEmailAndPassword(auth, this.email, this.password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            this.session = true;
+            this.dialog = false;
+            console.log(user)
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+          });
     }
   },
 };
